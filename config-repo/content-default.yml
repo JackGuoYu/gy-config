@@ -1,0 +1,62 @@
+spring:
+  profiles:
+    active：
+      - default
+---
+server:
+  port: 18773
+ 
+spring:
+  profiles: default
+  application:
+    name: careerpeak-content
+  datasource:
+    url: jdbc:mysql://39.101.179.31/careerpeak-content?useUnicode=true&useOldAliasMetadataBehavior=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: new_password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: 39.101.179.31
+    password: yy7943RMB
+    port: 6379
+    timeout: 10000
+  jpa:
+    properties:
+      hibernate:
+        enable-lazy-load-no-trans: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: false
+
+ribbon:
+  ReadTimeout: 60000
+  # 同一实例最大重试次数，不包括首次调用。默认值为0
+  MaxAutoRetries: 0
+  # 同一个微服务其他实例的最大重试次数，不包括第一次调用的实例。默认值为1
+  MaxAutoRetriesNextServer: 0
+  # 是否所有操作（GET、POST等）都允许重试。默认值为false
+  OkToRetryOnAllOperations: false
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:18763/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        
+proxy:
+  username: SNTP1636309995180887
+  password: ro3S9YWL3h
+  host: dyn.horocn.com
+  port: 50000
+careerpeak:
+  appid: wxc3cf1dd502a1370c
+  secret: 8eed0eb8fa3785a59f00a6f965c28077

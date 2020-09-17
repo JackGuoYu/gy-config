@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    active：
+      - default
+---
+spring:
+  profiles: dev
+  application:
+    name: careerpeak-common
+  redis:
+    host: 127.0.0.1
+    password: yy7943RMB
+    port: 6379
+    timeout: 10000

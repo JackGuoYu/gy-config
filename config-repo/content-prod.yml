@@ -1,0 +1,110 @@
+spring:
+  profiles:
+    active：
+      - prod
+---
+server:
+  port: 18773
+ 
+spring:
+  profiles: prod
+  application:
+    name: careerpeak-content
+  datasource:
+    url: jdbc:mysql://39.100.70.55/careerpeak-content?useUnicode=true&useOldAliasMetadataBehavior=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: careerpeak_forma
+    password: 8W7O7jyqLdcwj1eqsOhlbR
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    removeAbandoned: true
+    removeAbandonedTimeout: 180
+    druid:
+      #最大连接数
+      max-active: 1000
+      #获取连接最大等待时间
+      max-wait: 60000
+      min-idle: 5
+      #间隔多久检测一次需要关闭的空闲连接 毫秒
+      time-between-eviction-runs-millis: 60000
+      #连接在连接池中最小生存的时间，毫秒
+      min-evictable-idle-time-millis: 60000
+  redis:
+    host: 172.16.0.45
+    password: mieEY52AslgiEJp0IrrfrB
+    port: 6379
+    timeout: 10000
+  jpa:
+    properties:
+      hibernate:
+        enable-lazy-load-no-trans: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  kafka:
+    bootstrap-servers: iZ8vb3wdnrkij5whtbtigsZ:9092
+    consumer:
+      group-id: myGroup
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    listener:
+      missing-topics-fatal: false
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+ribbon:
+  ReadTimeout: 60000
+  # 同一实例最大重试次数，不包括首次调用。默认值为0
+  MaxAutoRetries: 0
+  # 同一个微服务其他实例的最大重试次数，不包括第一次调用的实例。默认值为1
+  MaxAutoRetriesNextServer: 0
+  # 是否所有操作（GET、POST等）都允许重试。默认值为false
+  OkToRetryOnAllOperations: false
+
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://172.16.0.45:18763/eureka/
+  instance:
+    lease-expiration-duration-in-seconds: 60 #服务过期时间配置,超过这个时间没有接收到心跳EurekaServer就会将这个实例剔除
+    lease-renewal-interval-in-seconds: 3 #服务刷新时间配置，每隔这个时间会主动心跳一次
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    
+#将sql的入参打印
+logging:
+  level:
+    org.springframework.security:
+      - debug
+      - info
+    org.springframework.web: error
+    org.hibernate.SQL: debug
+    org.hibernate.engine.QueryParameters: debug
+    org.hibernate.engine.query.HQLQueryPlan: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    com.xcdh.careerpeak.content.mapper: debug
+
+        
+proxy:
+  username: SNTP1636309995180887
+  password: ro3S9YWL3h
+  host: dyn.horocn.com
+  port: 50000
+careerpeak:
+  appid: wxc3cf1dd502a1370c
+  secret: 8eed0eb8fa3785a59f00a6f965c28077
+  
+## 日志配置
+logback:
+  path: /data/logs
+  level: INFO
+  moduleName: ${spring.application.name}
+
