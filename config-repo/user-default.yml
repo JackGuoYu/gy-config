@@ -69,6 +69,6 @@ logging:
 
 ## 日志配置
 logback:
-  path: /data/logs
+  path: /Users/mac/Documents/work/log
   level: INFO
   moduleName: ${spring.application.name}
