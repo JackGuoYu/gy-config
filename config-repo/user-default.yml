@@ -48,6 +48,7 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
     cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启sql日志
 
 management:
   endpoints:
@@ -55,17 +56,6 @@ management:
       exposure:
         include: "*"
 
-#将sql的入参打印
-logging:
-  level:
-    org.springframework.security:
-      - debug
-      - info
-    org.springframework.web: error
-    org.hibernate.SQL: debug
-    org.hibernate.engine.QueryParameters: debug
-    org.hibernate.engine.query.HQLQueryPlan: debug
-    org.hibernate.type.descriptor.sql.BasicBinder: trace
 
 ## 日志配置
 logback:
