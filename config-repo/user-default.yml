@@ -28,7 +28,7 @@ spring:
     password:
     port: 7000
     timeout: 10000
-    cluster:
+    cluster:  #集群配置，如果是单核，则注释掉即可
       nodes: 127.0.0.1:7000,127.0.0.1:7001,127.0.0.1:7002
       max-redirects: 3
     jedis:
@@ -37,6 +37,18 @@ spring:
         max-active: 32
         max-idle: 16
         min-idle: 8
+    kafka:
+      bootstrap-servers: localhost:9092
+      consumer:
+        group-id: myGroup
+        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      producer:
+        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+        value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      listener:
+        missing-topics-fatal: false
+
 
 
 
@@ -51,8 +63,8 @@ mybatis-plus:
       column-underline: true
       db-type: mysql
       #逻辑删除配置
-      logic-delete-value: 1
-      logic-not-delete-value: 0
+#      logic-delete-value: 1
+#      logic-not-delete-value: 0
     refresh: false
   configuration:
     map-underscore-to-camel-case: true
