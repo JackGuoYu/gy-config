@@ -40,18 +40,14 @@ spring:
     kafka:
       bootstrap-servers: localhost:9092
       consumer:
-        group-id: SpringCloud-bus
-        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      producer:
-        key-serializer: org.apache.kafka.common.serialization.StringSerializer
-        value-serializer: org.apache.kafka.common.serialization.StringSerializer
+        group-id: myGroup
+#        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      producer:
+#        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#        value-serializer: org.apache.kafka.common.serialization.StringSerializer
       listener:
         missing-topics-fatal: false
-  cloud:
-    bus:
-      refresh:
-        enabled: true
 
 
 
@@ -90,4 +86,4 @@ logback:
 
 user:
   name: jack
-  age: 37
+  age: 27
