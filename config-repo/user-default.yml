@@ -40,10 +40,10 @@ mybatis-plus:
       field-strategy: not_empty
       #驼峰下划线转换
       column-underline: true
-      #逻辑删除配置
-      logic-delete-value: 0
-      logic-not-delete-value: 1
       db-type: mysql
+      #逻辑删除配置
+      logic-delete-value: 1
+      logic-not-delete-value: 0
     refresh: false
   configuration:
     map-underscore-to-camel-case: true
