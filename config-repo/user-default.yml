@@ -83,3 +83,7 @@ logback:
   path: /Users/mac/Documents/work/log
   level: INFO
   moduleName: ${spring.application.name}
+
+user:
+  name: jack
+  age: 27
