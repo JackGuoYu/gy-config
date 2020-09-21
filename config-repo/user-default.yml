@@ -38,10 +38,10 @@ spring:
         max-idle: 16
         min-idle: 8
   cloud:
-    config:
-      uri: http://127.0.0.1:9002
-      name: user
-      profile: default
+#    config:
+#      uri: http://127.0.0.1:9002
+#      name: user
+#      profile: default
     bus:
       enabled: true
   kafka:
@@ -82,7 +82,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: '*'
+        include: "*"
 
 
 ## 日志配置
