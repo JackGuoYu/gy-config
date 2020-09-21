@@ -42,9 +42,6 @@ spring:
       uri: http://127.0.0.1:9002
       name: user
       profile: default
-      discovery:
-        service-id: gy-config
-        enabled: true
     bus:
       enabled: true
   kafka:
