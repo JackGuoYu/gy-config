@@ -37,23 +37,20 @@ spring:
         max-active: 32
         max-idle: 16
         min-idle: 8
-#    cloud:
-#      stream:
-#        kafka:
-#          binder:
-#            brokers: localhost:9092
-
-    kafka:
-      bootstrap-servers: localhost:9092
-      consumer:
-        group-id: myGroup
-        key-deserializer: org.apache.kafka.common.serialization.ByteArraySerializer
-        value-deserializer: org.apache.kafka.common.serialization.ByteArraySerializer
-      producer:
-        key-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
-        value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
-      listener:
-        missing-topics-fatal: false
+  cloud:
+    bus:
+      enabled: true
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: myGroup
+      key-deserializer: org.apache.kafka.common.serialization.ByteArraySerializer
+      value-deserializer: org.apache.kafka.common.serialization.ByteArraySerializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+      value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+    listener:
+      missing-topics-fatal: false
 
 
 
@@ -78,8 +75,6 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启sql日志
 
 management:
-  security:
-    enabled: false
   endpoints:
     web:
       exposure:
@@ -94,4 +89,4 @@ logback:
 
 user:
   name: jack
-  age: 35
+  age: 27
