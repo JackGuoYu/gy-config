@@ -37,18 +37,18 @@ spring:
         max-active: 32
         max-idle: 16
         min-idle: 8
-  cloud:
-    config:
-      uri: http://127.0.0.1:9002
-      name: user
-      profile: default
-    bus:
-      enabled: true
-    stream:
-      kafka:
-        binder:
-          zk-nodes: localhost:2181
-          brokers: localhost:9092
+#  cloud:
+#    config:
+#      uri: http://127.0.0.1:9002
+#      name: user
+#      profile: default
+#    bus:
+#      enabled: true
+#    stream:
+#      kafka:
+#        binder:
+#          zk-nodes: localhost:2181
+#          brokers: localhost:9092
 #  kafka:
 #    bootstrap-servers: localhost:9092
 #    consumer:
@@ -83,11 +83,11 @@ mybatis-plus:
     cache-enabled: false
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启sql日志
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: '*'
 
 
 ## 日志配置
@@ -98,4 +98,4 @@ logback:
 
 user:
   name: jack
-  age: 34
+  age: 27
