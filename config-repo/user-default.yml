@@ -44,8 +44,13 @@ spring:
       profile: default
     bus:
       enabled: true
-  kafka:
-    bootstrap-servers: localhost:9092
+    stream:
+      kafka:
+        binder:
+          zk-nodes: localhost:2181
+          brokers: localhost:9092
+#  kafka:
+#    bootstrap-servers: localhost:9092
 #    consumer:
 #      group-id: myGroup
 #      key-deserializer: org.apache.kafka.common.serialization.ByteArraySerializer
@@ -93,4 +98,4 @@ logback:
 
 user:
   name: jack
-  age: 36
+  age: 27
