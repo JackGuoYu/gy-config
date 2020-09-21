@@ -38,19 +38,23 @@ spring:
         max-idle: 16
         min-idle: 8
   cloud:
+    config:
+      uri: http://127.0.0.1:9002
+      name: user
+      profile: default
     bus:
       enabled: true
   kafka:
     bootstrap-servers: localhost:9092
-    consumer:
-      group-id: myGroup
-      key-deserializer: org.apache.kafka.common.serialization.ByteArraySerializer
-      value-deserializer: org.apache.kafka.common.serialization.ByteArraySerializer
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
-      value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
-    listener:
-      missing-topics-fatal: false
+#    consumer:
+#      group-id: myGroup
+#      key-deserializer: org.apache.kafka.common.serialization.ByteArraySerializer
+#      value-deserializer: org.apache.kafka.common.serialization.ByteArraySerializer
+#    producer:
+#      key-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+#      value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+#    listener:
+#      missing-topics-fatal: false
 
 
 
