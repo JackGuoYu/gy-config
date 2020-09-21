@@ -46,8 +46,7 @@ spring:
         service-id: gy-config
         enabled: true
     bus:
-      refresh:
-        enabled: true
+      enabled: true
   kafka:
     bootstrap-servers: localhost:9092
 #    consumer:
