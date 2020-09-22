@@ -1,6 +1,6 @@
 spring:
   application:
-    name: gy-user
+    name: gy-pay
   datasource:
     url: jdbc:mysql://localhost/gy-pay?useUnicode=true&useOldAliasMetadataBehavior=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     username: root
