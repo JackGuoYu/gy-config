@@ -1,6 +1,8 @@
 spring:
   application:
     name: gy-pay
+  main:
+    allow-bean-definition-overriding: true
   datasource:
     url: jdbc:mysql://localhost/gy-pay?useUnicode=true&useOldAliasMetadataBehavior=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     username: root
@@ -67,6 +69,23 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     cache-enabled: false
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启sql日志
+
+feign:
+  hystrix:
+    enabled: true
+
+ribbon:
+  ReadTimeout: 30000 #读取超时设置
+
+#hystrix 配置
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+          strategy: SEMAPHORE
 
 
 ## 日志配置
